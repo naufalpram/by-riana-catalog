@@ -116,7 +116,21 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html, body {
+    @apply overscroll-none;
+  }
   body {
     @apply bg-background text-foreground font-serif;
   }
+  section {
+    @apply px-[120px] z-[1] min-h-screen;
+  }
+  header {
+    z-index: 10000 !important;
+    /* background-color: black; */
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply leading-normal;
+  }
 }
+

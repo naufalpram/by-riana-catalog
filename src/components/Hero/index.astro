@@ -1,0 +1,72 @@
+---
+import { Image } from "astro:assets";
+import MomCooking from '@/assets/img/mom-cooking.jpg'
+import MomCookingCutOut from '@/assets/img/mom-cooking-remove-bg.png'
+---
+
+<section id="hero" class="bg-primary-foreground w-full h-[120dvh] flex justify-center pt-40 pb-60">
+    <div class="hero-img-container w-full max-w-7xl max-h-[596px] overflow-hidden relative">
+        <Image
+            src={MomCooking}
+            alt="Mother Cooking with Son"
+            loading="eager"
+            fetchpriority="high"
+            sizes="100%"
+        />
+        <h1 class="font-cursive absolute top-1/4 right-20 w-fit text-8xl text-background z-[9]">Homemade By Mom</h1>
+        <Image
+            src={MomCookingCutOut}
+            alt="Mother Cooking with Son"
+            loading="eager"
+            fetchpriority="high"
+            sizes="100%"
+            class="absolute top-0 left-0 z-10"
+        />
+    </div>
+</section>
+<script>
+    import { gsap } from 'gsap';
+    import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+    gsap.registerPlugin(ScrollTrigger);
+
+    const heroSection = document.getElementById('hero');
+
+    const introSection = document.querySelector('.intro');
+    if (!introSection) {
+        gsap.timeline()
+        .fromTo('.hero-img-container', {
+            height: 0,
+            alpha: 0
+        }, {
+            height: '100%',
+            alpha: 1,
+            duration: 4,
+            ease: 'expo.out',
+            delay: 3
+        })
+        .fromTo('header', {
+            yPercent: -100,
+        }, {
+            yPercent: 0,
+            duration: 0.5,
+            ease: 'circ.out'
+        }, '-=3')
+    }
+    if (heroSection) {
+
+        gsap.timeline({
+            scrollTrigger: {
+                pin: true,
+                start: 0,
+                end: () => `+=${0.5 * heroSection.offsetHeight}`,
+                scrub: 0.5,
+                toggleActions: 'play none none reverse'
+            },
+            
+        })
+        .to('section#hero h1', {
+            yPercent: -60
+        });
+    }
+
+</script>

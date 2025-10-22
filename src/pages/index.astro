@@ -1,43 +1,23 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import { Button } from "@/components/ui/button";
-import SplitText from "@/components/SplitText";
-import { ArrowRight } from "lucide-react";
+import Hero from '@/components/Hero/index.astro';
+import Intro from "@/components/Intro";
+import Statement from "@/components/Statement";
+import Menu from "@/components/Menu/index.astro";
+import 'lenis/dist/lenis.css';
+import Header from "@/components/Header";
 ---
-
 <Layout>
-	<main class="w-full">
-		<section class="intro w-full h-screen flex flex-col justify-center items-center gap-16">
-			<span transition:name="hero-text">
-				<SplitText
-					client:load
-					tag="h1"
-					text="By Riana's Kitchen"
-					className="text-6xl font-cursive overflow-visible"
-					delay={100}
-					duration={1.5}
-					ease="elastic.out(1,0.3)"
-					splitType="chars"
-					from={{ opacity: 0, y: 40 }}
-					to={{ opacity: 1, y: 0 }}
-				/>
-			</span>
-			<Button className="explore-btn text-lg font-semibold hover:bg-primary hover:scale-105 transition-transform duration-500 ease-in-out hover:[&_svg]:translate-x-1.5 [&_svg]:transition-transform [&_svg]:duration-500 [&_svg]:ease-in-out" size="xl">Explore Catalog <ArrowRight /></Button>
-		</section>
-		<header class="w-full px-4 py-6 justify-center hidden">
-            <h1 transition:name="hero-text" class="text-2xl font-cursive">By Riana's Kitchen</h1>
-		</header>
+	<Intro client:only="react">
+		<div slot="fallback" class="w-full h-screen bg-background"></div>
+	</Intro>
+	<Header client:only="react" />
+	<main class="w-full relative">
+		<Hero />
+		<Statement client:idle />
+		<Menu />
 	</main>
 </Layout>
 <script>
-	const introSection = document.querySelector('main .intro');
-	const exploreBtn = document.querySelector('main .intro .explore-btn');
-	const header = document.querySelector('header');
-	exploreBtn?.addEventListener('click', () => {
-		document.startViewTransition(() => {
-			introSection?.classList.add('hidden');
-			header?.classList.add('flex')
-			header?.classList.remove('hidden')
-		});
-	})
+	document.documentElement.scrollTop = 0;
 </script>
