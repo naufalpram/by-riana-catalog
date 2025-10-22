@@ -41,7 +41,7 @@ const Intro = () => {
   return !introDone && (
     <section
         ref={sectionRef}
-        className="intro w-full h-screen flex flex-col justify-center items-center gap-16 fixed top-0 left-0 bg-background z-[1000] overflow-hidden"
+        className="intro w-full h-screen flex flex-col justify-center items-center gap-16 fixed top-0 left-0 bg-background z-1000 overflow-hidden"
       >
         <SplitText
             tag="h1"

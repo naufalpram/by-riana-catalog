@@ -4,14 +4,11 @@ import Hero from '@/components/Hero/index.astro';
 import Intro from "@/components/Intro";
 import Statement from "@/components/Statement";
 import Menu from "@/components/Menu/index.astro";
-import 'lenis/dist/lenis.css';
-import Header from "@/components/Header";
 ---
 <Layout>
 	<Intro client:only="react">
 		<div slot="fallback" class="w-full h-screen bg-background"></div>
 	</Intro>
-	<Header client:only="react" />
 	<main class="w-full relative">
 		<Hero />
 		<Statement client:idle />

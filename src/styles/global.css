@@ -123,11 +123,13 @@
     @apply bg-background text-foreground font-serif;
   }
   section {
-    @apply px-[120px] z-[1] min-h-screen;
+    @apply z-1 min-h-screen;
+  }
+  section, header, footer {
+    @apply px-[120px];
   }
   header {
     z-index: 10000 !important;
-    /* background-color: black; */
   }
   h1, h2, h3, h4, h5, h6 {
     @apply leading-normal;

@@ -2,12 +2,12 @@
 import { Instagram } from "@lucide/astro"
 import { Button } from "./ui/button"
 ---
-<footer class="bg-primary h-dvh flex py-40">
-    <h2 class="font-cursive text-6xl w-full text-background">
+<footer class="bg-primary h-dvh py-40 flex flex-col gap-20 justify-center">
+    <h2 class="font-cursive text-6xl w-full text-secondary">
         Give Yourself Enjoyment with Our Mom's Cooking
     </h2>
     <div class="flex gap-6">
-        <Button variant="outline" className="border-secondary text-secondary" size="xl">Visit Us <Instagram size={20} /></Button>
+        <Button variant="outline" className="bg-transparent border-secondary text-secondary hover:[svg]" size="xl">Visit Us <Instagram size={20} /></Button>
         <Button variant="secondary" className="border-primary-secondary bg-background text-primary-foreground" size="xl">Order via Whatsapp</Button>
     </div>
 </footer>

@@ -28,7 +28,7 @@ const InternationalSavory = () => {
                 <div className="bg-foreground w-1/2 h-px" />
                 <h2 className="text-5xl font-cursive">International Savory</h2>
             </div>
-            <p className="text-2xl w-2/3"><span className="font-semibold">Global favorites, mastered.</span> Satisfying and iconic classNameics from around the world, prepared with precision and a contemporary touch.</p>
+            <p className="text-2xl w-2/3"><span className="font-semibold">Global favorites, mastered.</span> Satisfying and iconic classics from around the world, prepared with precision and a contemporary touch.</p>
         </hgroup>
     </section>
   )
